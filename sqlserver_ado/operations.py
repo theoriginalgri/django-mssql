@@ -300,7 +300,7 @@ class DatabaseOperations(BaseDatabaseOperations):
         """
         if isinstance(value, datetime.datetime):
             # Strip '-' so SQL Server parses as YYYYMMDD for all languages/formats
-            val = value.isoformat(b' ').replace('-', '')
+            val = value.isoformat(' ').replace('-', '')
             if value.microsecond:
                 # truncate to millisecond so SQL's 'datetime' can parse it
                 idx = val.rindex('.')
